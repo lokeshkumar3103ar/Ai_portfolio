@@ -126,7 +126,7 @@ const LoadingScreen = ({ onComplete }) => {
   };
 
   const name = "Lokesh Kumar A R";
-  const title = "AI Prompt Engineer & Data Science Enthusiast";
+  const title = "AI Generalist · Builder of Anything · Prompt Architect";
 
   return (
     <AnimatePresence>

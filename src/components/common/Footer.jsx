@@ -48,9 +48,9 @@ const Footer = () => {
               <span className="text-[#6366f1] dark:text-[#a78bfa] ml-2">A R</span>
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-md">
-              AI Prompt Engineering Intern specializing in structured approaches like 
-              TINE & IT DOC frameworks, creating intelligent solutions through 
-              strategic AI interactions and data-driven methodologies.
+              AI Generalist who builds anything across any domain through strategic 
+              AI collaboration and rapid system mastery. Creator of frameworks like 
+              TINE & IT DOC for intelligent solution architecture.
             </p>
             <div className="flex space-x-6">
               <a 
@@ -83,38 +83,25 @@ const Footer = () => {
           
           <div className="md:col-span-2"></div>
           
-          {/* Navigation */}
+          {/* Professional Site Link */}
           <motion.div 
             variants={fadeIn}
             className="md:col-span-2"
           >
-            <h3 className="text-xs uppercase tracking-wider font-medium text-gray-900 dark:text-gray-100 mb-6">Navigation</h3>
-            <ul className="space-y-4">
-              <li>
-                <a 
-                  href="#expertise" 
-                  className="text-gray-500 dark:text-gray-400 hover:text-[#6366f1] dark:hover:text-[#a78bfa] transition-all text-sm"
-                >
-                  Expertise
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#skills" 
-                  className="text-gray-500 dark:text-gray-400 hover:text-[#6366f1] dark:hover:text-[#a78bfa] transition-all text-sm"
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#timeline" 
-                  className="text-gray-500 dark:text-gray-400 hover:text-[#6366f1] dark:hover:text-[#a78bfa] transition-all text-sm"
-                >
-                  Timeline
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-xs uppercase tracking-wider font-medium text-gray-900 dark:text-gray-100 mb-6">Professional Site</h3>
+            <div>
+              <a 
+                href="https://lokeshkumar3103ar.github.io/My_portfolio/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 dark:text-gray-400 hover:text-[#6366f1] dark:hover:text-[#a78bfa] transition-all text-sm inline-flex items-center gap-2 group"
+              >
+                <span>Go to My Professional Site</span>
+                <svg className="h-3 w-3 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.66667 12.6667L12 7.33333L6.66667 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </motion.div>
           
           {/* Contact */}
