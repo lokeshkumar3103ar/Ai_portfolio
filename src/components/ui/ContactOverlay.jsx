@@ -71,6 +71,26 @@ const ContactOverlay = ({ isOpen, onClose }) => {
     }
   };
 
+  // Overlay close on scroll/click logic
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleScroll = () => {
+      onClose && onClose();
+    };
+    const handleClick = (e) => {
+      // Only close if click is outside modal
+      if (e.target.classList && e.target.classList.contains('fixed')) {
+        onClose && onClose();
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClick);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClick);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <AnimatePresence>
       {isOpen && (

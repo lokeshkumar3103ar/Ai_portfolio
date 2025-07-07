@@ -75,6 +75,25 @@ const AgentGallery = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasShownAgentOverlay]);
   
+  // Overlay close on scroll/click logic (1500ms delay before scroll can close)
+  useEffect(() => {
+    if (!showAgentOverlay) return;
+    let canClose = false;
+    const enableClose = () => { canClose = true; };
+    const handleScroll = () => {
+      if (canClose) setShowAgentOverlay(false);
+    };
+    const handleClick = () => setShowAgentOverlay(false);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClick);
+    const timeout = setTimeout(enableClose, 1500);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClick);
+      clearTimeout(timeout);
+    };
+  }, [showAgentOverlay]);
+  
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -143,7 +162,7 @@ const AgentGallery = () => {
                 </h3>
                 
                 <p className={`text-lg font-semibold mb-4 ${
-                  activeAgent === index ? 'text-white/95' : 'text-gray-700 dark:text-gray-300'
+                  activeAgent === index ? 'text-white' : 'text-gray-700 dark:text-gray-300'
                 }`}>
                   {agent.role}
                 </p>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaRocket, FaClock, FaCheckCircle, FaLightbulb, FaChartLine, FaFire, FaArrowRight, FaCode, FaBrain, FaCog } from 'react-icons/fa';
-import FireAnimation from '../transitions/FireAnimation';
+// import FireAnimation from '../transitions/FireAnimation';
 import ContactOverlay from '../ui/ContactOverlay';
 
 const ThirtyDayChallenge = () => {
@@ -16,31 +16,31 @@ const ThirtyDayChallenge = () => {
     setCounterAnimation(true);
   }, []);
 
-  // Intersection Observer for fire animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting && !fireAnimationCompleted) {
-          setShowFireAnimation(true);
-        }
-      },
-      {
-        threshold: 0.3, // Trigger when 30% of the section is visible
-        rootMargin: '0px 0px -100px 0px' // Offset to trigger slightly before fully visible
-      }
-    );
+  // REMOVE: Intersection Observer for fire animation
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       const [entry] = entries;
+  //       if (entry.isIntersecting && !fireAnimationCompleted) {
+  //         setShowFireAnimation(true);
+  //       }
+  //     },
+  //     {
+  //       threshold: 0.3, // Trigger when 30% of the section is visible
+  //       rootMargin: '0px 0px -100px 0px' // Offset to trigger slightly before fully visible
+  //     }
+  //   );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  //   if (sectionRef.current) {
+  //     observer.observe(sectionRef.current);
+  //   }
 
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [fireAnimationCompleted]);
+  //   return () => {
+  //     if (sectionRef.current) {
+  //       observer.unobserve(sectionRef.current);
+  //     }
+  //   };
+  // }, [fireAnimationCompleted]);
 
   const handleFireAnimationComplete = () => {
     setShowFireAnimation(false);
@@ -171,10 +171,10 @@ const ThirtyDayChallenge = () => {
 
   return (
     <>
-      <FireAnimation 
+      {/* <FireAnimation 
         isVisible={showFireAnimation} 
         onComplete={handleFireAnimationComplete}
-      />
+      /> */}
       <section 
         ref={sectionRef}
         className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"

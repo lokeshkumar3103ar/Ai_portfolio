@@ -36,6 +36,26 @@ const LiveProjectsDashboard = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasShownContextOverlay]);
 
+  // Overlay close on scroll/click logic for context overlay (close instantly on any scroll, but not the one that opens it)
+  useEffect(() => {
+    if (!showContextOverlay) return;
+    let canClose = false;
+    const enableClose = () => { canClose = true; };
+    const handleScroll = () => {
+      if (canClose) setShowContextOverlay(false);
+    };
+    const handleClick = () => setShowContextOverlay(false);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClick);
+    // Wait 500ms before allowing scroll to close overlay
+    const timeout = setTimeout(enableClose, 1500);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClick);
+      clearTimeout(timeout);
+    };
+  }, [showContextOverlay]);
+
   const projects = [
     {
       id: 'qritiq',

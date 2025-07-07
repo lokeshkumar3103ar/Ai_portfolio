@@ -8,25 +8,45 @@ const LabTransition = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Find the AboutAI section (which is in the #about section)
       const aboutSection = document.getElementById('about');
-      
-      if (!aboutSection || hasShown) return;
-      
+      if (!aboutSection) return;
       const aboutSectionTop = aboutSection.offsetTop;
-      const scrollPosition = window.scrollY + window.innerHeight * 0.5; // Trigger when section is 50% visible
-      
+      const aboutSectionBottom = aboutSectionTop + aboutSection.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight * 0.5;
+
       // Show overlay when entering the About AI section
-      if (scrollPosition >= aboutSectionTop && !hasShown) {
+      if (!hasShown && scrollPosition >= aboutSectionTop && scrollPosition <= aboutSectionBottom) {
         setShowOverlay(true);
         setHasShown(true);
-        // No auto-hide - user must click to close
+      }
+      // Hide overlay if user scrolls beyond the About section
+      if (showOverlay && (scrollPosition < aboutSectionTop || scrollPosition > aboutSectionBottom)) {
+        setShowOverlay(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasShown]);
+  }, [hasShown, showOverlay]);
+
+  // Overlay close on scroll/click logic (1500ms delay before scroll can close)
+  useEffect(() => {
+    if (!showOverlay) return;
+    let canClose = false;
+    const enableClose = () => { canClose = true; };
+    const handleScroll = () => {
+      if (canClose) setShowOverlay(false);
+    };
+    const handleClick = () => setShowOverlay(false);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClick);
+    const timeout = setTimeout(enableClose, 1500);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClick);
+      clearTimeout(timeout);
+    };
+  }, [showOverlay]);
 
   const floatingElements = [
     { icon: FaFlask, delay: 0, color: '#4F46E5', size: 'text-2xl' },
