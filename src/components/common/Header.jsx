@@ -167,7 +167,7 @@ const Header = () => {
           </motion.button>
           
           <motion.a
-            href="/Lokesh_Kumar_AR_Resume_2025.pdf"
+            href="./Lokesh_Kumar_AR_Resume_2025.pdf"
             className="hidden lg:flex py-2 px-3 xl:px-5 text-xs xl:text-sm font-medium text-gray-900 dark:text-white hover:text-white dark:hover:text-white transition-colors relative group flex-shrink-0"
             target="_blank"
             rel="noopener noreferrer"
