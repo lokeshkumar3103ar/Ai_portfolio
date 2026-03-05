@@ -167,11 +167,11 @@ const Header = () => {
           </motion.button>
           
           <motion.a
-            href={import.meta.env.BASE_URL + 'Lokesh_Kumar_AR_Resume_2025.pdf'}
+            href={import.meta.env.BASE_URL + 'Lokesh_Kumar_AR_Resume_2026.pdf'}
             className="hidden lg:flex py-2 px-3 xl:px-5 text-xs xl:text-sm font-medium text-gray-900 dark:text-white hover:text-white dark:hover:text-white transition-colors relative group flex-shrink-0"
             target="_blank"
             rel="noopener noreferrer"
-            download="Lokesh_Kumar_AR_Resume_2025.pdf"
+            download="Lokesh_Kumar_AR_Resume_2026.pdf"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
@@ -328,14 +328,14 @@ const Header = () => {
               {/* Footer with resume button */}
               <div className="px-6 py-6 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex-shrink-0">
                 <motion.a
-                  href={import.meta.env.BASE_URL + 'Lokesh_Kumar_AR_Resume_2025.pdf'}
+                  href={import.meta.env.BASE_URL + 'Lokesh_Kumar_AR_Resume_2026.pdf'}
                   className="block w-full py-4 px-6 text-center text-white text-lg font-medium rounded-lg shadow-lg transition-all duration-200 hover:shadow-xl"
                   style={{ 
                     background: `linear-gradient(135deg, ${currentColors.primary}, ${currentColors.secondary})` 
                   }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  download="Lokesh_Kumar_AR_Resume_2025.pdf"
+                  download="Lokesh_Kumar_AR_Resume_2026.pdf"
                   onClick={() => setMobileMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
